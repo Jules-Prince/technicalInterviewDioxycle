@@ -1,5 +1,8 @@
 # Energy Efficiency Calculator
 
+<img width="1059" alt="Capture d’écran 2024-06-18 à 18 39 15" src="https://github.com/Jules-Prince/technicalInterviewDioxycle/assets/47424960/95d5e758-7bff-4dea-a480-f322548bc3f5">
+
+
 This small application allows you to compute the energy efficiency value based on the molar fractions of CO and H2 gases. The voltage used in the calculation is randomly generated every 5 seconds on the backend.
 
 ## Energy Efficiency Formula
