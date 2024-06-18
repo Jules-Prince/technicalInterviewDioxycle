@@ -9,6 +9,7 @@ The energy efficiency (`EE`) is calculated using the following formula:
 $EE=(Xco/(Xco+Xh2)) * (1.47/V)$
 
 Where:
+
 - \( X_CO \) is the molar fraction of CO gas,
 - \( X_H2 \) is the molar fraction of H2 gas,
 - \( V \) is the last generated voltage.
