@@ -11,7 +11,7 @@ function App() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://127.0.0.1:5000/molar_fractions", { CO: co, H2: h2})
+      await axios.post("http://127.0.0.1:3000/molar_fractions", { CO: co, H2: h2})
       console.log("Molar fractions trasmited successfully")
     } catch(error) {
       console.error('Error updating molar fractions:', error);
@@ -21,11 +21,9 @@ function App() {
   useEffect(() => {
     const interval = setInterval(async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/energy_efficiency');
+        const response = await axios.get('http://127.0.0.1:3000/energy_efficiency');
         setEfficiency(response.data.energyEffiency);
         setLastVoltage(response.data.lastVoltageData);
-        console.log(response.data)
-        console.log(lastVoltage)
       } catch (error) {
         console.error('Error fetching energy efficiency:', error);
       }

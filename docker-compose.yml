@@ -1,0 +1,12 @@
+services:
+  frontend:
+    build:
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "80:80"
+
+  backend:
+    build:
+      dockerfile: backend/Dockerfile
+    ports:
+      - "3000:5000"
