@@ -1,14 +1,19 @@
 import threading
 import random
 import time
+from utils import getDBConnection
 
 voltageList = []
 
 def generateVoltageData():
     while True:
+        conn = getDBConnection()
+        cursor = conn.cursor()
         voltage = random.uniform(2, 4)
-        voltageList.append(voltage)
+        cursor.execute('INSERT INTO voltages (voltage) VALUES (?)', (voltage,))
+        conn.commit()
         print(f"Appended voltage: {voltage}")
+        cursor.close()
         time.sleep(5)
 
 def startVoltageThread():

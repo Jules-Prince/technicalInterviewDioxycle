@@ -1,19 +1,29 @@
+import sqlite3
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from dataGenerator import startVoltageThread
-from utils import compute_energy_efficiency, molarFractions
+from utils import computeEnergyEfficiency, getDBConnection, molarFractions
 import sys
 
 app = Flask(__name__)
 CORS(app)
 
-# Start the background thread for voltage generation
+def createTable():
+    conn = getDBConnection()
+
+    with open('db/schema.sql') as f:
+        conn.executescript(f.read())
+
+    conn.close()
+
+createTable()
+
 startVoltageThread()
 
 @app.route("/api/energy_efficiency", methods=["GET"])
 def get_energy_efficiency():
     print("new energy_efficiency value asked", file=sys.stderr)
-    efficiency, last_voltage = compute_energy_efficiency()
+    efficiency, last_voltage = computeEnergyEfficiency()
     response = {
         "energyEfficiency": efficiency,
         "lastVoltageData": last_voltage
