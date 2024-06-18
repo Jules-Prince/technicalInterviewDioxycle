@@ -6,7 +6,7 @@ This small application allows you to compute the energy efficiency value based o
 
 The energy efficiency (`EE`) is calculated using the following formula:
 
-\[ \text{EE} = \left(\frac{X_{\text{CO}}}{X_{\text{CO}} + X_{\text{H2}}}\right) \times \frac{1.47}{V} \]
+$\EE=(Xco/(Xco+Xh2)) * (1.47/V)$
 
 Where:
 - \( X_{\text{CO}} \) is the molar fraction of CO gas,
