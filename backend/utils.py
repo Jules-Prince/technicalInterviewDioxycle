@@ -4,7 +4,13 @@ import os
 molarFractions = {'CO': None, 'H2': None}
 
 def getDBConnection():
-    dbPath = os.path.join(os.path.dirname(__file__), 'data', 'voltages.db')
+    dataDir = os.path.join(os.path.dirname(__file__), 'data')
+    if not os.path.exists(dataDir):
+        os.makedirs(dataDir)
+
+    dbPath = os.path.join(dataDir, 'voltages.db')
+
+    print(dbPath)
     conn = sqlite3.connect(dbPath)
     conn.row_factory = sqlite3.Row
     return conn
