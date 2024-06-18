@@ -1,6 +1,6 @@
 body {
   background-color: #f0f8ff;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
@@ -9,19 +9,39 @@ body {
   height: 100vh;
 }
 
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 2px solid #007bff; /* Blue border color */
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  color: #007bff; /* Blue header color */
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .container {
   background-color: #ffffff;
-  border: 2px solid #ff69b4;
+  border: 2px solid #007bff; /* Blue border color */
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 300px;
-}
-
-h1 {
-  color: #ff69b4;
-  margin-bottom: 20px;
+  margin-right: 3em;
 }
 
 form {
@@ -30,19 +50,19 @@ form {
 }
 
 label {
-  color: #ff69b4;
+  color: #007bff; /* Blue label color */
   margin: 10px 0 5px;
 }
 
 input[type="number"] {
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #ced4da; /* Lighter border color */
   border-radius: 5px;
   margin-bottom: 15px;
 }
 
 button {
-  background-color: #ff69b4;
+  background-color: #007bff; /* Blue button color */
   color: white;
   border: none;
   border-radius: 5px;
@@ -52,17 +72,29 @@ button {
 }
 
 button:hover {
-  background-color: #ff1493;
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
 .data-display {
   margin-top: 20px;
   padding: 10px;
-  background-color: #ffe4e1;
-  border: 1px solid #ff69b4;
+  background-color: #f8d7da; /* Light red background */
+  border: 1px solid #dc3545; /* Red border color */
   border-radius: 10px;
 }
 
 .data-display p {
   margin: 5px 0;
+}
+
+.chart-container {
+  margin-top: 20px; /* Adjust margin as needed */
+  padding: 20px;
+  background-color: #ffffff;
+  border: 2px solid #007bff; /* Blue border color */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
