@@ -9,8 +9,8 @@ The energy efficiency (`EE`) is calculated using the following formula:
 $EE=(Xco/(Xco+Xh2)) * (1.47/V)$
 
 Where:
-- \( X_{\text{CO}} \) is the molar fraction of CO gas,
-- \( X_{\text{H2}} \) is the molar fraction of H2 gas,
+- \( X_CO \) is the molar fraction of CO gas,
+- \( X_H2 \) is the molar fraction of H2 gas,
 - \( V \) is the last generated voltage.
 
 ### Backend API Routes
@@ -26,13 +26,13 @@ The backend exposes the following routes:
 To build the application using Docker:
 
 ```bash
-docker-compose build
+docker compose build
 ```
 
 To run the application:
 
 ```bash
-docker-compose run
+docker compose run
 ```
 
-Then the frontend is served on port 80
+Then the frontend is served on port 80.
