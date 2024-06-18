@@ -14,4 +14,4 @@ COPY backend/ .
 EXPOSE 5000
 
 # Command to run the Flask application
-CMD ["python", "-m", "flask", "--app", "main", "run", "--host=0.0.0.0"]
+CMD ["python", "-m", "flask", "run", "--host=0.0.0.0"]

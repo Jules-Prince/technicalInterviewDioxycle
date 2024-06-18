@@ -10,10 +10,15 @@ function App() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (co.trim() === '' || h2.trim() === '') {
+      alert("Please fill in both CO and H2 fields.");
+      return;
+    }
+
     try {
-      await axios.post("http://127.0.0.1:3000/molar_fractions", { CO: co, H2: h2})
-      console.log("Molar fractions trasmited successfully")
-    } catch(error) {
+      await axios.post("http://127.0.0.1:3000/api/molar_fractions", { CO: co, H2: h2 })
+      console.log("Molar fractions transmitted successfully")
+    } catch (error) {
       console.error('Error updating molar fractions:', error);
     }
   }
@@ -21,8 +26,9 @@ function App() {
   useEffect(() => {
     const interval = setInterval(async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:3000/energy_efficiency');
-        setEfficiency(response.data.energyEffiency);
+        const response = await axios.get('http://127.0.0.1:3000/api/energy_efficiency');
+        console.log(response.data)
+        setEfficiency(response.data.energyEfficiency);
         setLastVoltage(response.data.lastVoltageData);
       } catch (error) {
         console.error('Error fetching energy efficiency:', error);
@@ -34,31 +40,31 @@ function App() {
 
   return (
     <div className="container">
-            <h1>Energy Efficiency Calculator</h1>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="co">CO Molar Fraction</label>
-                <input 
-                    type="number" 
-                    id="co" 
-                    value={co} 
-                    onChange={(e) => setCO(e.target.value)} 
-                    required 
-                />
-                <label htmlFor="h2">H2 Molar Fraction</label>
-                <input 
-                    type="number" 
-                    id="h2" 
-                    value={h2} 
-                    onChange={(e) => setH2(e.target.value)} 
-                    required 
-                />
-                <button type="submit">Submit</button>
-            </form>
-            <div className="data-display">
-                <p>Energy Efficiency: {efficiency !== null ? efficiency.toFixed(2) : 'Loading...'}</p>
-                <p>Last Voltage: {lastVoltage !== null ? lastVoltage : 'Loading...'}</p>
-            </div>
-        </div>
+      <h1>Energy Efficiency Calculator</h1>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="co">CO Molar Fraction</label>
+        <input
+          type="number"
+          id="co"
+          value={co}
+          onChange={(e) => setCO(e.target.value)}
+          required
+        />
+        <label htmlFor="h2">H2 Molar Fraction</label>
+        <input
+          type="number"
+          id="h2"
+          value={h2}
+          onChange={(e) => setH2(e.target.value)}
+          required
+        />
+        <button type="submit" disabled={co.trim() === '' || h2.trim() === ''}>Submit</button>
+      </form>
+      <div className="data-display">
+        <p>Energy Efficiency: {efficiency !== null ? efficiency.toFixed(2) : 'Loading...'}</p>
+        <p>Last Voltage: {lastVoltage !== null ? lastVoltage : 'Loading...'}</p>
+      </div>
+    </div>
   );
 }
 
