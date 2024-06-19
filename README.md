@@ -36,7 +36,7 @@ docker compose build
 To run the application:
 
 ```bash
-docker compose run
+docker compose up
 ```
 
 Then the frontend is served on port 80.
