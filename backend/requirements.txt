@@ -53,7 +53,7 @@ Pylons==1.0.3
 pyshark==0.6
 pytest==8.2.2
 python-dotenv==1.0.1
-python-multipart==0.0.9
+python-multipart==0.0.18
 PyYAML==6.0.1
 repoze.lru==0.7
 rich==13.7.1
